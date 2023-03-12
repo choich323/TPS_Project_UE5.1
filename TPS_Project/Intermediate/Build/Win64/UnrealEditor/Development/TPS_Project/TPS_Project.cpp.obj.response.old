@@ -1,7 +1,9 @@
-E:\Programming_Practice\Unreal5\TPS_Project\TPS_Project_UE5.1.1\TPS_Project\Source\TPS_Project\TPS_Project.cpp
+E:\Programming_Practice\Unreal5\TPS_Project\TPS_Project_UE5.1.1\TPS_Project\Source\TPS_Project\private\TPS_Project.cpp
 /I .
+/I E:\Programming_Practice\Unreal5\TPS_Project\TPS_Project_UE5.1.1\TPS_Project\Source\TPS_Project\Private
 /I E:\Programming_Practice\Unreal5\TPS_Project\TPS_Project_UE5.1.1\TPS_Project\Intermediate\Build\Win64\UnrealEditor\Inc\TPS_Project\UHT
 /I E:\Programming_Practice\Unreal5\TPS_Project\TPS_Project_UE5.1.1\TPS_Project\Source
+/I E:\Programming_Practice\Unreal5\TPS_Project\TPS_Project_UE5.1.1\TPS_Project\Source\TPS_Project\Public
 /I Runtime
 /I Runtime\TraceLog\Public
 /I Runtime\Core\Public

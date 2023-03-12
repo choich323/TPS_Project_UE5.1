@@ -27,6 +27,18 @@
     <None Include="..\..\Config\DefaultEngine.ini">
       <Filter>Config</Filter>
     </None>
+    <Filter Include="Platforms">
+      <UniqueIdentifier>{ED49A36C-4FD5-37E5-A2AC-E11BEF4F21CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\HoloLens">
+      <UniqueIdentifier>{28125F47-4973-377C-9D77-EBC3C72EC856}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\HoloLens\Config">
+      <UniqueIdentifier>{D3BF39CB-FA64-39E2-A327-B5021BA69773}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Platforms\HoloLens\Config\HoloLensEngine.ini">
+      <Filter>Platforms\HoloLens\Config</Filter>
+    </None>
     <Filter Include="Source\TPS_Project">
       <UniqueIdentifier>{B343D088-2471-364B-88AA-E29BE26FC3D0}</UniqueIdentifier>
     </Filter>
@@ -36,19 +48,25 @@
     <Filter Include="Source\TPS_Project\public">
       <UniqueIdentifier>{A59F10B8-1963-3F2D-8629-5FBEF63A3A04}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\TPS_Project\public\TPS_ProjectGameModeBase.h">
+      <Filter>Source\TPS_Project\public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\TPS_Project\public\TPS_Project.h">
       <Filter>Source\TPS_Project\public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\TPS_Project\public\TPS_ProjectGameModeBase.h">
+    <ClInclude Include="..\..\Source\TPS_Project\public\TPSPlayer.h">
       <Filter>Source\TPS_Project\public</Filter>
     </ClInclude>
     <Filter Include="Source\TPS_Project\private">
       <UniqueIdentifier>{4DA613A9-B29A-3127-88C1-CC8BA1A346EA}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\TPS_Project\private\TPS_ProjectGameModeBase.cpp">
+      <Filter>Source\TPS_Project\private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TPS_Project\private\TPS_Project.cpp">
       <Filter>Source\TPS_Project\private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TPS_Project\private\TPS_ProjectGameModeBase.cpp">
+    <ClCompile Include="..\..\Source\TPS_Project\private\TPSPlayer.cpp">
       <Filter>Source\TPS_Project\private</Filter>
     </ClCompile>
   </ItemGroup>
