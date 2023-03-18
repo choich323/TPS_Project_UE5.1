@@ -37,6 +37,13 @@ public:
 	// 이동 속도
 	UPROPERTY(EditAnywhere, Category = PlayerSetting)
 	float walkSpeed = 600;
+
+	UPROPERTY(VisibleAnywhere, Category = GunMesh)
+	class USkeletalMeshComponent* gunMeshComp;
+
+	UPROPERTY(EditDefaultsOnly, Category = BulletFactory)
+	TSubclassOf<class ABullet> bulletFactory;
+
 	// 이동 방향
 	FVector direction;
 
@@ -52,4 +59,6 @@ public:
 	void InputJump();
 	// 플레이어 이동 처리
 	void Move();
+	// 총알 발사 처리 함수
+	void InputFire();
 };

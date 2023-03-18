@@ -47,6 +47,9 @@ ABullet::ABullet()
 	movementComp->bShouldBounce = true;
 	// 반동 값
 	movementComp->Bounciness = 0.3f;
+
+	// 생존 시간 설정해서 제거하기
+	//InitialLifeSpan = 2.0f;
 }
 
 // Called when the game starts or when spawned
@@ -54,6 +57,15 @@ void ABullet::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	FTimerHandle deathTimer;
+	//타이머 사용하기
+	//GetWorld()->GetTimerManager().SetTimer(deathTimer, this, &ABullet::Die, 2.0f, false);
+	
+	// 람다함수 이용하기
+	GetWorld()->GetTimerManager().SetTimer(deathTimer, FTimerDelegate::CreateLambda([this]()->void 
+		{
+			Destroy();
+		}), 2.0f, false);
 }
 
 // Called every frame
@@ -61,5 +73,21 @@ void ABullet::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void ABullet::Die()
+{
+	Destroy();
+}
+
+// 액터의 특정 속성을 수정하면 호출되는 이벤트 함수
+void ABullet::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+{
+	// speed 값이 수정되었는지 체크
+	if (PropertyChangedEvent.GetPropertyName() == TEXT("speed")) {
+		// 무브먼트 컴포넌트에 값 적용
+		movementComp->InitialSpeed = speed;
+		movementComp->MaxSpeed = speed;
+	}
 }
 
