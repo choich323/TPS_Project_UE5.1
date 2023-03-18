@@ -21,10 +21,10 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
-    <None Include="..\..\Config\DefaultInput.ini">
+    <None Include="..\..\Config\DefaultEngine.ini">
       <Filter>Config</Filter>
     </None>
-    <None Include="..\..\Config\DefaultEngine.ini">
+    <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
     <Filter Include="Platforms">
@@ -57,6 +57,9 @@
     <ClInclude Include="..\..\Source\TPS_Project\public\TPSPlayer.h">
       <Filter>Source\TPS_Project\public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\TPS_Project\public\Bullet.h">
+      <Filter>Source\TPS_Project\public</Filter>
+    </ClInclude>
     <Filter Include="Source\TPS_Project\private">
       <UniqueIdentifier>{4DA613A9-B29A-3127-88C1-CC8BA1A346EA}</UniqueIdentifier>
     </Filter>
@@ -67,6 +70,9 @@
       <Filter>Source\TPS_Project\private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TPS_Project\private\TPSPlayer.cpp">
+      <Filter>Source\TPS_Project\private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TPS_Project\private\Bullet.cpp">
       <Filter>Source\TPS_Project\private</Filter>
     </ClCompile>
   </ItemGroup>
