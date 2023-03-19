@@ -6,5 +6,5 @@
 
 ATPS_ProjectGameModeBase::ATPS_ProjectGameModeBase()
 {
-	PRINT_LOG(TEXT("My Log : %s"), TEXT("TPS project!!"));
+	//PRINT_LOG(TEXT("My Log : %s"), TEXT("TPS project!!"));
 }

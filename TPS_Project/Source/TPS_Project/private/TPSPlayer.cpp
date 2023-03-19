@@ -5,6 +5,7 @@
 #include <GameFramework/SpringArmComponent.h>
 #include <Camera/CameraComponent.h>
 #include "Bullet.h"
+#include <Blueprint/UserWidget.h>
 
 // Sets default values
 ATPSPlayer::ATPSPlayer()
@@ -48,13 +49,30 @@ ATPSPlayer::ATPSPlayer()
 		gunMeshComp->SetSkeletalMesh(TempGunMesh.Object);
 		gunMeshComp->SetRelativeLocation(FVector(-14, 52, 120));
 	}
+	
+	// 스나이퍼 컴포넌트 등록
+	sniperGunComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SniperGunComp"));
+	sniperGunComp->SetupAttachment(GetMesh());
+	// 메시 데이터 로드
+	ConstructorHelpers::FObjectFinder<UStaticMesh> TempSniperMesh(TEXT("/Script/Engine.StaticMesh'/Game/SniperGun/sniper1.sniper1'"));
+	if (TempSniperMesh.Succeeded()) {
+		// 메시 할당, 위치, 크기 조정
+		sniperGunComp->SetStaticMesh(TempSniperMesh.Object);
+		sniperGunComp->SetRelativeLocation(FVector(-22, 55, 120));
+		sniperGunComp->SetRelativeScale3D(FVector(0.15f));
+	}
+
 }
 
 // Called when the game starts or when spawned
 void ATPSPlayer::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	// 스나이퍼 UI 위젯 인스턴스 생성
+	_sniperUI = CreateWidget(GetWorld(), sniperUIFactory);
+
+	// 기본으로 스나이퍼 총 사용하도록
+	ChangeToSniperGun();
 }
 
 // Called every frame
@@ -70,12 +88,22 @@ void ATPSPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	// 시야 조종
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATPSPlayer::Turn);
 	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &ATPSPlayer::LookUp);
+	// 위치 조종
 	PlayerInputComponent->BindAxis(TEXT("Horizontal"), this, &ATPSPlayer::InputHorizontal);
 	PlayerInputComponent->BindAxis(TEXT("Vertical"), this, &ATPSPlayer::InputVertical);
+	// 점프
 	PlayerInputComponent->BindAction(TEXT("Jump"), IE_Pressed, this, &ATPSPlayer::InputJump);
+	// 사격
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATPSPlayer::InputFire);
+	// 총 종류 변경
+	PlayerInputComponent->BindAction(TEXT("Grenade Gun"), IE_Pressed, this, &ATPSPlayer::ChangeToGrenadeGun);
+	PlayerInputComponent->BindAction(TEXT("Sniper Gun"), IE_Pressed, this, &ATPSPlayer::ChangeToSniperGun);
+	// 스나이퍼 조준
+	PlayerInputComponent->BindAction(TEXT("SniperMode"), IE_Pressed, this, &ATPSPlayer::SniperAim);
+	PlayerInputComponent->BindAction(TEXT("SniperMode"), IE_Released, this, &ATPSPlayer::SniperAim);
 }
 
 void ATPSPlayer::Turn(float value)
@@ -123,3 +151,33 @@ void ATPSPlayer::InputFire()
 	GetWorld()->SpawnActor<ABullet>(bulletFactory, firePosition);
 }
 
+void ATPSPlayer::ChangeToGrenadeGun()
+{
+	bUsingGrenadeGun = true;
+	sniperGunComp->SetVisibility(false);
+	gunMeshComp->SetVisibility(true);
+}
+
+void ATPSPlayer::ChangeToSniperGun()
+{
+	bUsingGrenadeGun = false;
+	sniperGunComp->SetVisibility(true);
+	gunMeshComp->SetVisibility(false);
+}
+
+void ATPSPlayer::SniperAim()
+{
+	if (bUsingGrenadeGun)
+		return;
+	if (!bSniperAim) {
+		// 조준 중으로 변경, 뷰포트에 출력, 시야각 설정
+		bSniperAim = true;
+		_sniperUI->AddToViewport();
+		tpsCamComp->SetFieldOfView(45.0f);
+	}
+	else {
+		bSniperAim = false;
+		_sniperUI->RemoveFromViewport();
+		tpsCamComp->SetFieldOfView(90.0f);
+	}
+}
