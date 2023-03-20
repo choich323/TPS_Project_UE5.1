@@ -6,6 +6,7 @@
 #include <Camera/CameraComponent.h>
 #include "Bullet.h"
 #include <Blueprint/UserWidget.h>
+#include <Kismet/GameplayStatics.h>
 
 // Sets default values
 ATPSPlayer::ATPSPlayer()
@@ -70,6 +71,10 @@ void ATPSPlayer::BeginPlay()
 	Super::BeginPlay();
 	// 스나이퍼 UI 위젯 인스턴스 생성
 	_sniperUI = CreateWidget(GetWorld(), sniperUIFactory);
+	// 일반 조준 UI 인스턴스 생성
+	_crosshairUI = CreateWidget(GetWorld(), crosshairUIFactory);
+	// UI등록(기본 상태이므로)
+	_crosshairUI->AddToViewport();
 
 	// 기본으로 스나이퍼 총 사용하도록
 	ChangeToSniperGun();
@@ -147,8 +152,44 @@ void ATPSPlayer::Move()
 
 void ATPSPlayer::InputFire()
 {
-	FTransform firePosition = gunMeshComp->GetSocketTransform(TEXT("FirePosition"));
-	GetWorld()->SpawnActor<ABullet>(bulletFactory, firePosition);
+	// 유탄총 장착 중이면
+	if (bUsingGrenadeGun) {
+		FTransform firePosition = gunMeshComp->GetSocketTransform(TEXT("FirePosition"));
+		GetWorld()->SpawnActor<ABullet>(bulletFactory, firePosition);
+	}
+	// 스나이퍼 총 장착 중이면
+	else {
+		// LineTrace의 시작 위치
+		FVector startPos = tpsCamComp->GetComponentLocation();
+		// LineTrace의 종료 위치
+		FVector endPos = tpsCamComp->GetComponentLocation() + tpsCamComp->GetForwardVector() * 5000;
+		// LineTrace의 충돌 정보를 담을 변수
+		FHitResult hitInfo;
+		// 충돌 옵션 설정 변수
+		FCollisionQueryParams params;
+		// 자기 자신(플레이어)는 충돌에서 제외
+		params.AddIgnoredActor(this);
+		// Channel 필터를 이용한 LineTrace 충돌 검출
+		bool bHit = GetWorld()->LineTraceSingleByChannel(hitInfo, startPos, endPos, ECC_Visibility, params);
+		// 충돌했을 때 > 그 위치에 효과를 발생시켜야 함
+		if (bHit) {
+			// 부딪힌 위치
+			FTransform bulletTrans;
+			// 위치 할당
+			bulletTrans.SetLocation(hitInfo.ImpactPoint);
+			// 총알 파편 효과 인스턴스 생성(월드에 이펙트를 transformation에 생성)
+			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), bulletEffectFactory, bulletTrans);
+			
+			// 부딪힌 물체의 컴포넌트
+			auto hitComp = hitInfo.GetComponent();
+			// 컴포넌트에 물리 처리가 되어 있으면
+			if (hitComp && hitComp->IsSimulatingPhysics()) {
+				// 부딪힌 지점의 면의 노멀 벡터를 활용, 물체의 무게에 맞게 조정.
+				FVector force = -1 * hitInfo.ImpactNormal * hitComp->GetMass() * 500000;
+				hitComp->AddForce(force);
+			}
+		}
+	}
 }
 
 void ATPSPlayer::ChangeToGrenadeGun()
@@ -172,12 +213,14 @@ void ATPSPlayer::SniperAim()
 	if (!bSniperAim) {
 		// 조준 중으로 변경, 뷰포트에 출력, 시야각 설정
 		bSniperAim = true;
+		_crosshairUI->RemoveFromViewport();
 		_sniperUI->AddToViewport();
 		tpsCamComp->SetFieldOfView(45.0f);
 	}
 	else {
 		bSniperAim = false;
 		_sniperUI->RemoveFromViewport();
+		_crosshairUI->AddToViewport();
 		tpsCamComp->SetFieldOfView(90.0f);
 	}
 }
