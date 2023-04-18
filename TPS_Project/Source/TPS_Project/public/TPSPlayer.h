@@ -36,7 +36,10 @@ public:
 	
 	// 이동 속도
 	UPROPERTY(EditAnywhere, Category = PlayerSetting)
-	float walkSpeed = 600;
+	float walkSpeed = 200;
+
+	UPROPERTY(EditAnywhere, Category = PlayerSetting)
+	float runSpeed = 600;
 
 	UPROPERTY(VisibleAnywhere, Category = GunMesh)
 	class USkeletalMeshComponent* gunMeshComp;
@@ -60,6 +63,9 @@ public:
 
 	// 크로스헤어 인스턴스
 	class UUserWidget* _crosshairUI;
+
+	// 달리기 이벤트 처리 함수
+	void InputRun();
 
 	// 스나이퍼 UI 위젯 인스턴스
 	class UUserWidget* _sniperUI;

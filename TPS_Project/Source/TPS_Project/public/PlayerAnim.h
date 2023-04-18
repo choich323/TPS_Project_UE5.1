@@ -18,6 +18,12 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = PlayerAnim)
 	float speed = 0;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = PlayerAnim)
+	bool isInAir = false;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = PlayerAnim)
+	float direction = 0;
+
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
 
 };

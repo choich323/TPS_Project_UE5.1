@@ -3,6 +3,7 @@
 
 #include "PlayerAnim.h"
 #include "TPSPlayer.h"
+#include <GameFramework/CharacterMovementComponent.h>
 
 void UPlayerAnim::NativeUpdateAnimation(float DeltaSeconds)
 {
@@ -18,7 +19,14 @@ void UPlayerAnim::NativeUpdateAnimation(float DeltaSeconds)
 	// 캐스트에 성공했으면
 	if (player) {
 		FVector velocity = player->GetVelocity();
+		// 전후 속도 할당
 		FVector forwardvector = player->GetActorForwardVector();
 		speed = FVector::DotProduct(forwardvector, velocity);
+		// 좌우 속도 할당
+		FVector rightVector = player->GetActorRightVector();
+		direction = FVector::DotProduct(rightVector, velocity);
+		// 플레이어가 공중에 있는지 확인
+		auto movement = player->GetCharacterMovement();
+		isInAir = movement->IsFalling();
 	}
 }
