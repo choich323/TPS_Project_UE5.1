@@ -84,7 +84,9 @@
             "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\public\\charactermovementcomponentasync.h",
             "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\public\\engine\\overlapinfo.h",
             "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementcomponentasync.generated.h",
-            "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementcomponent.generated.h"
+            "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementcomponent.generated.h",
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1.1\\tps_project\\source\\tps_project\\public\\playeranim.h",
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\inc\\tps_project\\uht\\playeranim.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

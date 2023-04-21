@@ -5,6 +5,11 @@
 #include "TPSPlayer.h"
 #include <GameFramework/CharacterMovementComponent.h>
 
+void UPlayerAnim::PlayAttackAnim()
+{
+	Montage_Play(attackAnimMontage);
+}
+
 void UPlayerAnim::NativeUpdateAnimation(float DeltaSeconds)
 {
 	// 소유 폰 얻어 오기
