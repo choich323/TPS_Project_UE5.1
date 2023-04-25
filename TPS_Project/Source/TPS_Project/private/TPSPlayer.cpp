@@ -68,6 +68,11 @@ ATPSPlayer::ATPSPlayer()
 		sniperGunComp->SetRelativeScale3D(FVector(0.15f));
 	}
 
+	ConstructorHelpers::FObjectFinder<USoundBase> tempSound(TEXT("/Script/Engine.SoundWave'/Game/SniperGun/Rifle.Rifle'"));
+	if (tempSound.Succeeded()) {
+		bulletSound = tempSound.Object;
+	}
+
 }
 
 // Called when the game starts or when spawned
@@ -175,6 +180,13 @@ void ATPSPlayer::Move()
 
 void ATPSPlayer::InputFire()
 {
+	// 총소리 재생
+	UGameplayStatics::PlaySound2D(GetWorld(), bulletSound);
+
+	// 카메라 셰이크로 총 반동 주기
+	auto controller = GetWorld()->GetFirstPlayerController();
+	controller->PlayerCameraManager->StartCameraShake(cameraShake);
+
 	auto anim = Cast<UPlayerAnim>(GetMesh()->GetAnimInstance());
 	anim->PlayAttackAnim();
 
@@ -227,6 +239,9 @@ void ATPSPlayer::InputFire()
 
 void ATPSPlayer::ChangeToGrenadeGun()
 {
+	// 스나이퍼 조준 중에 총을 바꾸는 경우에 조준 해제를 먼저 적용
+	SniperRelease();
+
 	bUsingGrenadeGun = true;
 	sniperGunComp->SetVisibility(false);
 	gunMeshComp->SetVisibility(true);
@@ -244,16 +259,29 @@ void ATPSPlayer::SniperAim()
 	if (bUsingGrenadeGun)
 		return;
 	if (!bSniperAim) {
-		// 조준 중으로 변경, 뷰포트에 출력, 시야각 설정
+		// 조준 상태로 변경, 뷰포트에 출력, 시야각 설정
 		bSniperAim = true;
-		_crosshairUI->RemoveFromViewport();
 		_sniperUI->AddToViewport();
 		tpsCamComp->SetFieldOfView(45.0f);
+		_crosshairUI->RemoveFromParent(); // Parent()로 제거해야지 '뷰포트에서 제거'를 하면 안된다.
 	}
 	else {
 		bSniperAim = false;
-		_sniperUI->RemoveFromViewport();
-		_crosshairUI->AddToViewport();
+		_sniperUI->RemoveFromParent();
 		tpsCamComp->SetFieldOfView(90.0f);
+		_crosshairUI->AddToViewport();
+	}
+}
+
+void ATPSPlayer::SniperRelease()
+{
+	// 유탄총, 비조준 중이면 실행하지 않음
+	if (bUsingGrenadeGun || !bSniperAim)
+		return;
+	if(bSniperAim) {
+		bSniperAim = false;
+		_sniperUI->RemoveFromParent();
+		tpsCamComp->SetFieldOfView(90.0f);
+		_crosshairUI->AddToViewport();
 	}
 }

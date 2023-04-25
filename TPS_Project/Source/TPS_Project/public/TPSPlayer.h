@@ -61,6 +61,12 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = SniperUI)
 	TSubclassOf<class UUserWidget> crosshairUIFactory;
 
+	UPROPERTY(EditDefaultsOnly, Category = CameraMotion)
+	TSubclassOf<class UCameraShakeBase> cameraShake;
+
+	UPROPERTY(EditDefaultsOnly, Category = Sound)
+	class USoundBase* bulletSound;
+
 	// 크로스헤어 인스턴스
 	class UUserWidget* _crosshairUI;
 
@@ -102,4 +108,7 @@ public:
 
 	// 스나이퍼 조준
 	void SniperAim();
+
+	// 조준 해제
+	void SniperRelease();
 };
