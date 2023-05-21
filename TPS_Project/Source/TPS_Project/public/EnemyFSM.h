@@ -40,7 +40,7 @@ public:
 
 	// 대기 시간
 	UPROPERTY(EditDefaultsOnly, Category = FSM)
-	float idleDelayTime = 2;
+	float idleDelayTime = 1;
 	// 현재 시간
 	float currentTime = 0;
 
@@ -69,6 +69,18 @@ public:
 	// 사망시 아래로 사라지는 속도
 	UPROPERTY(EditAnywhere, Category = FSM)
 	float dieSpeed = 50.0f;
+
+	UPROPERTY()
+	class UEnemyAnim* anim;
+
+	UPROPERTY()
+	class AAIController* ai;
+
+	// 길 찾기 수행시 랜덤 위치
+	FVector randomPos;
+
+	// 랜덤 위치 가져오기: 검색 기준 위치, 검색 반경, 위치 저장 변수
+	bool GetRandomPositionInNavMesh(FVector centerLocation, float radius, FVector& dest);
 
 	void IdleState();
 

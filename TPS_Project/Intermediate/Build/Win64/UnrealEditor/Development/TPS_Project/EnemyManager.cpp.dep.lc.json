@@ -1,0 +1,34 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\source\\tps_project\\private\\enemymanager.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\intermediate\\build\\win64\\tps_projecteditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\development\\tps_project\\definitions.tps_project.h",
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\source\\tps_project\\public\\enemymanager.h",
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\inc\\tps_project\\uht\\enemymanager.generated.h",
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\source\\tps_project\\public\\enemy.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\inc\\tps_project\\uht\\enemy.generated.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\public\\engineutils.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystatics.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetsystemlibrary.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\coreuobject\\public\\assetregistry\\arfilter.h",
+            "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\kismetsystemlibrary.generated.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\sound\\dialoguetypes.h",
+            "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\dialoguetypes.generated.h",
+            "e:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
+            "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystaticstypes.generated.h",
+            "e:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystatics.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

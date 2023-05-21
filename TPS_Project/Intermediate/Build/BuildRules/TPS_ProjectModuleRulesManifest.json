@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"E:\\Programming_Practice\\Unreal5\\TPS_Project\\TPS_Project_UE5.1.1\\TPS_Project\\Source\\TPS_Project\\TPS_Project.Build.cs",
-		"E:\\Programming_Practice\\Unreal5\\TPS_Project\\TPS_Project_UE5.1.1\\TPS_Project\\Source\\TPS_Project.Target.cs",
-		"E:\\Programming_Practice\\Unreal5\\TPS_Project\\TPS_Project_UE5.1.1\\TPS_Project\\Source\\TPS_ProjectEditor.Target.cs"
+		"E:\\Programming_Practice\\Unreal5\\TPS_Project\\TPS_Project_UE5.1\\TPS_Project\\Source\\TPS_Project\\TPS_Project.Build.cs",
+		"E:\\Programming_Practice\\Unreal5\\TPS_Project\\TPS_Project_UE5.1\\TPS_Project\\Source\\TPS_Project.Target.cs",
+		"E:\\Programming_Practice\\Unreal5\\TPS_Project\\TPS_Project_UE5.1\\TPS_Project\\Source\\TPS_ProjectEditor.Target.cs"
 	],
 	"EngineVersion": "5.1.1"
 }

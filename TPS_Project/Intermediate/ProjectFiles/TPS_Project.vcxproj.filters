@@ -18,10 +18,10 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
-    <None Include="..\..\Config\DefaultEngine.ini">
+    <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
-    <None Include="..\..\Config\DefaultInput.ini">
+    <None Include="..\..\Config\DefaultEngine.ini">
       <Filter>Config</Filter>
     </None>
     <None Include="..\..\Config\DefaultEditor.ini">
@@ -57,16 +57,22 @@
     <ClInclude Include="..\..\Source\TPS_Project\public\Bullet.h">
       <Filter>Source\TPS_Project\public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\TPS_Project\public\Enemy.h">
+      <Filter>Source\TPS_Project\public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TPS_Project\public\PlayerAnim.h">
+      <Filter>Source\TPS_Project\public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\TPS_Project\public\TPSPlayer.h">
       <Filter>Source\TPS_Project\public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\TPS_Project\public\Enemy.h">
+    <ClInclude Include="..\..\Source\TPS_Project\public\EnemyAnim.h">
       <Filter>Source\TPS_Project\public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\TPS_Project\public\EnemyFSM.h">
       <Filter>Source\TPS_Project\public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\TPS_Project\public\PlayerAnim.h">
+    <ClInclude Include="..\..\Source\TPS_Project\public\EnemyManager.h">
       <Filter>Source\TPS_Project\public</Filter>
     </ClInclude>
     <Filter Include="Source\TPS_Project\private">
@@ -81,16 +87,22 @@
     <ClCompile Include="..\..\Source\TPS_Project\private\TPS_ProjectGameModeBase.cpp">
       <Filter>Source\TPS_Project\private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TPS_Project\private\EnemyFSM.cpp">
+    <ClCompile Include="..\..\Source\TPS_Project\private\PlayerAnim.cpp">
       <Filter>Source\TPS_Project\private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TPS_Project\private\Enemy.cpp">
       <Filter>Source\TPS_Project\private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TPS_Project\private\EnemyAnim.cpp">
+      <Filter>Source\TPS_Project\private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TPS_Project\private\TPSPlayer.cpp">
       <Filter>Source\TPS_Project\private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TPS_Project\private\PlayerAnim.cpp">
+    <ClCompile Include="..\..\Source\TPS_Project\private\EnemyFSM.cpp">
+      <Filter>Source\TPS_Project\private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TPS_Project\private\EnemyManager.cpp">
       <Filter>Source\TPS_Project\private</Filter>
     </ClCompile>
   </ItemGroup>

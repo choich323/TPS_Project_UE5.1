@@ -187,6 +187,7 @@ void ATPSPlayer::InputFire()
 	auto controller = GetWorld()->GetFirstPlayerController();
 	controller->PlayerCameraManager->StartCameraShake(cameraShake);
 
+	// 공격 몽타주 재생
 	auto anim = Cast<UPlayerAnim>(GetMesh()->GetAnimInstance());
 	anim->PlayAttackAnim();
 

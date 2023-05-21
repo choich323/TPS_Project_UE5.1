@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\inc\\tps_project\\uht\\playeranim.gen.cpp",
+        "Source": "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\inc\\tps_project\\uht\\playeranim.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1.1\\tps_project\\intermediate\\build\\win64\\tps_projecteditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "PCH": "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\intermediate\\build\\win64\\tps_projecteditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
         "Includes": [
-            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\development\\tps_project\\definitions.tps_project.h",
-            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1.1\\tps_project\\source\\tps_project\\public\\playeranim.h",
-            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\inc\\tps_project\\uht\\playeranim.generated.h"
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\development\\tps_project\\definitions.tps_project.h",
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\source\\tps_project\\public\\playeranim.h",
+            "e:\\programming_practice\\unreal5\\tps_project\\tps_project_ue5.1\\tps_project\\intermediate\\build\\win64\\unrealeditor\\inc\\tps_project\\uht\\playeranim.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
